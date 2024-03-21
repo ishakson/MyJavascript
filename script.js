@@ -1,20 +1,33 @@
  'use strict';
+const john = {
+    firstName: 'john',
+    lastName: "khan",
+    birthYear: 1990,
+    family: ['khan', 'khan', 'khan'],
+    job: 'teacher',
+    isMarried: false,
+    friends: ['khan', 'khan', 'khan'],
 
- const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
- let tips = []
- let totals = []
+    calcAge: function () {
+        this.age =  2020 - this.birthYear;
 
-function calcTip(bill) {
-    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+        return this.age
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()} year old ${this.job}, and he has ${this.friends.length} friends. he is ${this.isMarried ? 'married' : 'single'}`;
+    }
 }
 
-function calcTotal(bill, tip) {
-    return bill + tip;
-}
 
-tips = bills.map(calcTip);
-totals = bills.map((bill , index)=> calcTotal(bill, tips[index]))
+console.log(john.birthYear);
+console.log(john['lastName']);
 
-console.log(bills)
-console.log(tips)
-console.log(totals)
+// const interestedIn = prompt('What do you want to know about John? Choose between firstName, lastName, birthYear, family, job, isMarried');
+// console.log(john[interestedIn]);
+
+// console.log(`${john.firstName} has ${john.friends.length} friends and his best friend is ${john.friends[0]}.`);
+// console.log( john.calcAge(1333) );
+// console.log( john['calcAge'](1333) );
+console.log(john.calcAge() );
+console.log(john.getSummary() );
